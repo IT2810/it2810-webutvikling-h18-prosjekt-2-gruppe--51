@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './RadioGroup.css';
 
 class RadioGroup extends Component {
 
@@ -31,7 +32,7 @@ class RadioGroup extends Component {
         return (
                 <fieldset>
                     <legend>{this.props.legend}</legend>
-                    <ul>{radios}</ul>
+                    <ul className="RadioEntry">{radios}</ul>
                 </fieldset>
         );
     }
