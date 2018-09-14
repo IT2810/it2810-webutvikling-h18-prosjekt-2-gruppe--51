@@ -2,13 +2,25 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SelectorPanel from "./SelectorPanel.js"
+import axios from 'axios';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {text: {author: "placeholder", text:"bob"}};
+    this.generateMedia = this.generateMedia.bind(this);
+  }
 
   generateMedia(results) {
     const print = Object.values(results);
     const prant = Object.keys(results)
     alert("you have selected: " + prant + " : " + print);
+    axios.get("assets/text/facts/1.json")
+    .then(res => {
+      console.log(res);
+      this.setState({text: res.data});
+  })
   }
 
   render() {
@@ -27,6 +39,7 @@ class App extends Component {
         {groupName: "text",
         legend: "Choose a text type", 
         options: ["haiku", "jokes", "facts"]}]} onSubmit={this.generateMedia} buttonText="Create my image!"/>
+        <div><h1>{this.state.text["author"]}</h1>{this.state.text["text"]}</div>
       </div>
     );
   }
