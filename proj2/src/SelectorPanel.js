@@ -54,7 +54,7 @@ class SelectorPanel extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 {radioGroups}
-                <button type="submit" id="generate_media" disabled={!this.state.active}>Select</button>
+                <button type="submit" id="generate_media" disabled={!this.state.active}>{this.props.buttonText}</button>
             </form>
         );
     }

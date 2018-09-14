@@ -26,7 +26,7 @@ class App extends Component {
         options: ["art", "abstract", "animals"]},
         {groupName: "text",
         legend: "Choose a text type", 
-        options: ["haiku", "jokes", "facts"]}]} onSubmit={this.generateMedia}/>
+        options: ["haiku", "jokes", "facts"]}]} onSubmit={this.generateMedia} buttonText="Create my image!"/>
       </div>
     );
   }
