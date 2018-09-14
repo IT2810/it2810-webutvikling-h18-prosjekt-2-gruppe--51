@@ -39,14 +39,17 @@ class SelectorPanel extends Component {
     }
 
     handleSubmit(event) {
+        // process the results and send it to the parent
         event.preventDefault();
-        const results = Object.values(this.state.groupValues);
-        alert("you have selected: " + results);
+        // const results = Object.values(this.state.groupValues);
+        const results = this.state.groupValues;
+        // alert("you have selected: " + results);
+        this.props.onSubmit(results);
     }
 
     render() {
         const radioGroups = this.props.groups.map((group) =>
-        <RadioGroup key={group.groupName} options={group.options} legend={group.groupName} notifyParent={this.handleChange}/>);
+        <RadioGroup key={group.groupName} options={group.options} legend={group.legend} groupName = {group.groupName} notifyParent={this.handleChange}/>);
 
         return (
             <form onSubmit={this.handleSubmit}>

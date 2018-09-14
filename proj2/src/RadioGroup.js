@@ -20,7 +20,7 @@ class RadioGroup extends Component {
         //     this.notifyParent();
         // }
         if (this.props.notifyParent) {
-        this.props.notifyParent(this.props.legend, event.target.value);
+        this.props.notifyParent(this.props.groupName, event.target.value);
         };
         this.setState({value: event.target.value});
     }
