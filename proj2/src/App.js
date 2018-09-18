@@ -7,7 +7,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { text: { author: "placeholder", text: "bob" }, image: "lol image here pls" };
+    this.state = { text: { author: "Author placeholder", text: "Text placeholder" }, image: "<h1>Image placeholder</h1>" };
     this.generateMedia = this.generateMedia.bind(this);
   }
 
@@ -43,10 +43,8 @@ class App extends Component {
     const image = this.state["image"];
     return (
       <div className="App">
-        <div className="MediaArea">
-          <div className="GalleryImage" dangerouslySetInnerHTML={{ __html: image }} />
-          <div className="TextField"><h1>{this.state.text["author"]}</h1>{this.state.text["text"]}</div>
-        </div>
+        <div className="GalleryImage" dangerouslySetInnerHTML={{ __html: image }} />
+        <div className="TextField"><h3>{this.state.text["author"]}</h3>{this.state.text["text"]}</div>
         <div className="TabRow">
           <div className="t1">Tab1</div>
         </div>

@@ -1,13 +1,44 @@
 .App {
   margin: 10px;
   display: grid;
-  grid-template-areas: "tabs tabs"
-  "media selector";
-  height: 100vh;
+  grid-gap: 10px;
+  grid-template-rows: auto auto 60vh auto;
+  grid-template-areas: "selector"
+  "tabs"
+  "image"
+  "text"
+  "audio";
 }
 
-.MediaArea {
-  grid-area: media;
+@media only screen and (min-width: 768px) {
+  .App {
+    display: grid;
+    grid-template-columns: 75vw 20vw;
+    grid-template-rows: auto 60vh auto;
+    grid-template-areas: "tabs tabs"
+    "image selector"
+    "text selector"
+    "audio selector";
+  }
+}
+
+.GalleryImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8f8f8f
+}
+
+/* TODO: fix svg scaling headache */
+
+.GalleryImage svg {
+  box-sizing: content-box;
+  display: block;
+  float: none;
+}
+
+.TextField {
+  grid-area: text;
 }
 
 .ToolPanel {
