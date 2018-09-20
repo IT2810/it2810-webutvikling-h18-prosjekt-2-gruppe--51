@@ -51,22 +51,6 @@
   width: 100%;
   height: 100%;
 }
-<<<<<<< HEAD
-=======
-
-.tab-list {
-
-}
-
-.tab-individual {
-  display: inline-block;
-  margin: 5px;
-}
-
-.tab-current {
-
-}
->>>>>>> 899f3e07a4564f7ff01b10c06fb951cf5c5a1b7e
 
 .TextField {
   grid-area: text;
@@ -83,7 +67,6 @@
 .AudioArea {
   grid-area: audio;
 }
-<<<<<<< HEAD
 
 .t1, .t2, .t3, .t4 {
   width: 100px;
@@ -91,7 +74,7 @@
   text-align: center;
   margin: 5px;
   float: left;
-  width: 23.5%;
+  width: 16%;
   border-bottom: 1px solid black;
 }
 
@@ -106,9 +89,3 @@ clearfix::after {
     clear: both;
     display: table;
 }
-
-* {
-    box-sizing: border-box;
-}
-=======
->>>>>>> 899f3e07a4564f7ff01b10c06fb951cf5c5a1b7e
