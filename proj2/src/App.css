@@ -23,19 +23,21 @@
 }
 
 .GalleryImage {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
-  background-color: #8f8f8f
+  background-color: #e9dcb4;
+  /* padding-bottom: 70%;
+  position: relative; */
 }
 
 /* TODO: fix svg scaling headache */
 
 .GalleryImage svg {
-  box-sizing: content-box;
-  display: block;
-  float: none;
-}
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+} 
 
 .TextField {
   grid-area: text;
