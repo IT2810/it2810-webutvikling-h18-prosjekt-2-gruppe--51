@@ -19,7 +19,7 @@ class App extends Component {
 
   // todo: generateMedia should incorporate the randomizer function and send the results into the media panel
   // after this is done, the active tab should load and save its contents, but the others should wait until they activate
-  // make sure to flush the content 
+  // make sure to flush the content
   generateMedia(results) {
     axios.get(this.randomMedia({ folder: "text", format: ".json" }, [results["text"]]))
       .then(res => {
@@ -55,8 +55,19 @@ class App extends Component {
         <div className="AudioArea">
           {this.state.audio}
         </div>
+        <div class="clearfix">
         <div className="TabRow">
           <div className="t1">Tab1</div>
+        </div>
+        <div className="TabRow">
+          <div className="t2">Tab2</div>
+        </div>
+        <div className="TabRow">
+          <div className="t3">Tab3</div>
+        </div>
+        <div className="TabRow">
+          <div className="t4">Tab4</div>
+        </div>
         </div>
         <div className="ToolPanel">
           <SelectorPanel groups={[{
