@@ -18,7 +18,7 @@ class App extends Component {
     const print = Object.values(results);
     const prant = Object.keys(results)
     alert("you have selected: " + prant + " : " + print);
-    axios.get("assets/text/facts/1.json")
+    axios.get(this.randomMedia({folder: "text", format: ".json"}, [results["text"]]))
       .then(res => {
         console.log(res);
         this.setState({ text: res.data });
@@ -56,8 +56,8 @@ class App extends Component {
           },
           {
             groupName: "text",
-            legend: "Choose a text type",
-            options: ["haiku", "jokes", "facts"]
+            legend: "Choose a text category",
+            options: ["animal", "flowers", "summer"]
           }]} onSubmit={this.generateMedia} buttonText="Create my image!" />
         </div>
       </div>
