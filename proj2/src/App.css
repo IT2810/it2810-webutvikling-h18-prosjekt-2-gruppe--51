@@ -50,7 +50,20 @@
   /* position: absolute; */
   width: 100%;
   height: 100%;
-} 
+}
+
+.tab-list {
+
+}
+
+.tab-individual {
+  display: inline-block;
+  margin: 5px;
+}
+
+.tab-current {
+
+}
 
 .TextField {
   grid-area: text;
