@@ -74,6 +74,8 @@
 }
 
 .TabRow {
+  display: flex;
+  justify-content: space-around;
   grid-area: tabs;
 }
 
