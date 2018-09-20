@@ -1,28 +1,50 @@
 .App {
-  text-align: center;
+  margin: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: auto auto 60vh auto;
+  grid-template-areas: "selector"
+  "tabs"
+  "image"
+  "text"
+  "audio";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+@media only screen and (min-width: 768px) {
+  .App {
+    display: grid;
+    grid-template-columns: 75vw 20vw;
+    grid-template-rows: auto 60vh auto;
+    grid-template-areas: "tabs tabs"
+    "image selector"
+    "text selector"
+    "audio selector";
+  }
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.GalleryImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8f8f8f
 }
 
-.App-title {
-  font-size: 1.5em;
+/* TODO: fix svg scaling headache */
+
+.GalleryImage svg {
+  box-sizing: content-box;
+  display: block;
+  float: none;
 }
 
-.App-intro {
-  font-size: large;
+.TextField {
+  grid-area: text;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.ToolPanel {
+  grid-area: selector;
+}
+
+.TabRow {
+  grid-area: tabs;
 }
