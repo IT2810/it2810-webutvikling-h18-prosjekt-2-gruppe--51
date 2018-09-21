@@ -80,7 +80,6 @@
 
 .t1:hover, .t2:hover, .t3:hover, .t4:hover {
   background: #BDC2C9;
-  font-weight: bold;
   border-radius: 1px;
 }
 
@@ -92,4 +91,26 @@ clearfix::after {
 
 .GalleryImage {
   background: inherit;
+}
+
+button {
+  margin: 20px 0px 20px 0px;
+  width: 200px;
+  height: 50px;
+  font-size: 1em;
+  color: inherit;
+}
+
+button:hover {
+  background: #BDC2C9;
+  border: 0px;
+}
+
+li:hover {
+  background: #BDC2C9;
+}
+
+body {
+   background-image: url("pattern.jpg");
+   background-repeat: repeat;
 }
