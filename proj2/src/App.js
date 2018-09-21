@@ -98,7 +98,7 @@ class App extends Component {
     return list;
   }
 
-  //returns the file location of content based on the index 
+  //returns the file location of content based on the index
   randomMediaToPath(type, categories, index) {
     let i = Math.round(Math.random() * (categories.length - 1))
     //let i2 = Math.round(Math.random() * 3 + 1);
@@ -116,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="clearfix">
-        <Tabs className="App">
+        <Tabs className="Tabs">
           <div label="Tab 1">
             <div className="GalleryImage" dangerouslySetInnerHTML={{ __html: image1 }} />
             <div className="TextField">
