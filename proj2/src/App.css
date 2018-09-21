@@ -4,10 +4,7 @@
   grid-gap: 10px;
   grid-template-rows: auto auto 60vh auto;
   grid-template-areas: "selector"
-  "tabs"
-  "image"
-  "audio"
-  "text";
+  "tabs";
 }
 
 @media only screen and (min-width: 768px) {
@@ -15,10 +12,12 @@
     display: grid;
     grid-template-columns: 70vw 25vw;
     grid-template-rows: auto 60vh auto;
-    grid-template-areas: "tabs tabs"
-    "image selector"
-    "audio selector"
-    "text selector";
+    grid-template-areas: "tabs selector";
+  }
+
+  .ToolPanel {
+    grid-area: selector;
+    margin-top: 47px;
   }
 }
 
@@ -27,10 +26,12 @@
     display: grid;
     grid-template-columns: 60vw 35vw;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "tabs tabs"
-    "image selector"
-    "image audio"
-    "image text";
+    grid-template-areas: "tabs selector";
+  }
+
+  .ToolPanel {
+    grid-area: selector;
+    margin-top: 47px;
   }
 }
 
@@ -40,8 +41,12 @@
   justify-content: center;
   align-items: center;
   background-color: #e9dcb4;
+  padding-left: 5%;
+  padding-right: 5%;
   /* padding-bottom: 70%;
   position: relative; */
+  max-width: 500px;
+  max-height: 500px;
 }
 
 /* TODO: fix svg scaling headache */
@@ -54,18 +59,35 @@
 
 .TextField {
   grid-area: text;
+  padding: 5%;
 }
 
 .ToolPanel {
   grid-area: selector;
 }
 
-.TabRow {
+.AudioArea {
+  grid-area: audio;
+  padding: 5%;
+}
+
+.Tabs {
   grid-area: tabs;
 }
 
-.AudioArea {
-  grid-area: audio;
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-individual {
+  display: inline-block;
+  margin-bottom: -1px;
+  padding: 10px 5%;
+}
+
+.tab-current {
+  border: 1px solid #ccc
 }
 
 .t1, .t2, .t3, .t4 {
