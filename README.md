@@ -1,6 +1,6 @@
-# Project 2, Group 52
+# Project 2, Group 51
 
-- [Project 2, Group 52](#project-2-group-52)
+- [Project 2, Group 51](#project-2-group-51)
   - [Project description](#project-description)
   - [React](#react)
   - [UI Elements](#ui-elements)
