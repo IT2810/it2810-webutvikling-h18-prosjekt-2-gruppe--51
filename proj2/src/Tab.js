@@ -7,7 +7,8 @@ class Tab extends Component {
 
   render() {
     let className="tab-individual"
-    if (this.props.activeTab === this.props.label) {
+    if (this.props.currentTab === this.props.label) {
+      //Gives extra css options to the current tab
       className += " tab-current";
     }
 

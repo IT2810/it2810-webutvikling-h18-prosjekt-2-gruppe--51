@@ -17,7 +17,7 @@
 
   .ToolPanel {
     grid-area: selector;
-    margin-top: 45px;
+    margin-top: 47px;
   }
 }
 
@@ -31,7 +31,7 @@
 
   .ToolPanel {
     grid-area: selector;
-    margin-top: 45px;
+    margin-top: 47px;
   }
 }
 
@@ -83,11 +83,11 @@
 .tab-individual {
   display: inline-block;
   margin-bottom: -1px;
-  padding: 10px 30px;
+  padding: 10px 5%;
 }
 
 .tab-current {
-
+  border: 1px solid #ccc
 }
 
 .t1, .t2, .t3, .t4 {
