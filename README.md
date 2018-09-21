@@ -94,6 +94,10 @@ A tab can thus be specified using a div with a label, and everything within it i
 </Tabs>
 ```
 
+Initially we tried to implement the tabs as buttons that passed content to the image, text, and audio segments of the page, but we had problems getting that to work so this solution was selected instead.
+
+The tabs component was created with the help of this guide: https://alligator.io/react/tabs-component/
+
 ## AJAX & JSON
 
 For loading the media, we use Asynchronous JavaScript And XML (AJAX), which is just a fancy word for fetching data after the initial load of the page. We chose [Axios](https://github.com/axios/axios) as the method to do this, which is a Promise based HTTP client.
