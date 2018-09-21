@@ -1,17 +1,15 @@
 # Project 2, Group 52
 
-## Contents
-
 - [Project 2, Group 52](#project-2-group-52)
-  - [Contents](#contents)
   - [Project description](#project-description)
   - [React](#react)
   - [UI Elements](#ui-elements)
     - [Selector Panel](#selector-panel)
-    - [Audio and Text components](#audio-and-text-components)
+    - [Tabs component](#tabs-component)
   - [AJAX & JSON](#ajax--json)
   - [Responsive web design](#responsive-web-design)
   - [Collaboration](#collaboration)
+  - [Testing](#testing)
 
 ## Project description
 
@@ -76,25 +74,31 @@ When the user finally presses the button to generate media, the selector panel p
 
 Which then gets sent to the method that generates a random set of media URLs from the chosen categories.
 
-### Audio and Text components
+### Tabs component
 
-Since our text comes in the following JSON format, it is useful to have a component that we can just throw an entire JSON into and then forget about the rest.
+Since our gallery needs to display four sets of media after the user has made their choice, we need a tabbed interface to switch between these sets. This is done through the `Tabs.js` component and the underlying `Tab.js`
 
-```json
-{"title": "foo",
-"author": "bob",
-"text": "bar"}
+Each tab has their own `onClick` handler connected to the onClick of the label of the tab, which feeds the label into the parent tabs component. The parent component then sets its `currentTab` state accordingly, which in turn makes the children JSX elements of the selected tab render.
+
+A tab can thus be specified using a div with a label, and everything within it is the content that gets rendered as long as the tab is active;
+
+```jsx
+<Tabs className="Tabs">
+  <div label="Tab 1">
+    <h1>Some text</h1>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  <div label="Tab 2">
+    <p>This is a different tab with different content!</p>
+  </div>
+</Tabs>
 ```
-
-Which is exactly what `TextPanel` implements. Its `render()` method simply fetches the title, author and text values and displays them in regular HTML elements that can be further styled through CSS. Having the text saved in a component is useful for the tabbed interface too, as each tab will have one text component each.
-
-The `AudioPanel` component is similar, but instead of accepting a JSON it accepts an audio url instead. Its render method then gives a standard HTML5 `<audio>` tag that autoplays the sound. This means the audio will load again each time a tab is loaded (?).
 
 ## AJAX & JSON
 
 For loading the media, we use Asynchronous JavaScript And XML (AJAX), which is just a fancy word for fetching data after the initial load of the page. We chose [Axios](https://github.com/axios/axios) as the method to do this, which is a Promise based HTTP client.
 
-Loading text is simple enough, all we had to do was call `axios.get("url/to/our/text.json")` and then do something with the response. To do something with said response, you simply chain a `.then(response => {...})` call onto it, using an arrow function to perform operations using the response. Since we have a nice text component that accepts an entire JSON, and our texts are saved as JSON, all we have to do in the arrow function is to create a `TextPanel` with `response.data` as a prop the first time a tab is loaded. (response.data is the actual data that got fetched)
+Loading text is simple enough, all we had to do was call `axios.get("url/to/our/text.json")` and then do something with the response. To do something with said response, you simply chain a `.then(response => {...})` call onto it, using an arrow function to perform operations using the response. Since we have a nice text component that accepts an entire JSON, and our texts are saved as JSON, all we have to do in the arrow function is to create a `TextPanel` with `response.data` as a prop. (response.data is the actual data that got fetched)
 
 Loading images is similar, but with a slight difference since the format is in SVG this time, which means `result.data` will give a string full of the XML from the SVG file. To make this XML display as a SVG, we used the `dangerouslySetInnerHTML` attribute, which is Reacts replacement for `innerHTML`, reminding us that it is dangerous to set HTML via code. Nonetheless, this made SVG images pop up as usual, and we fulfilled the requirement of not loading SVGs more than once.
 
@@ -106,8 +110,7 @@ Today, web pages are enjoyed on devices that come in all shapes and sizes, so it
 
 For this reason, it is important to design web sites that are *responsive* in the sense that they conform and change the flow of the elements based on the available screen space and input methods: vertical layouts work better on mobile devices, and wide layouts work great on desktop computers. Similarly, small controls and buttons make sense for an environment where you use a mouse to click, but on a touch screen the buttons can benefit from a larger size.
 
-In our case, we used CSS rules to have the underlying CSS grid change based on the width of the viewport. If the width went under a set limit of CSS pixels, the grid was reordered into a single-column layout, with controls on top instead of on the side.
-<!-- todo: explanation of the ways to actually use responsive web design, presumably through CSS, media queries, viewports and whatnot -->
+In our case, we used CSS rules to have the underlying CSS grid change based on the width of the viewport. If the width went under a set limit of CSS pixels, the grid was reordered into a single-column layout, with controls on top instead of on the side. If the width went over a larger amount of pixels, the text and audio controls moved under the selector panel, making the image fill more of the screen. In between these changes in the layout, the general grid makes sure the different parts of the page scale accordingly.
 
 ## Collaboration
 
@@ -117,6 +120,18 @@ Git keeps track of each addition, deletion or change in each tracked file, and u
 
 Multiple people working on the same file might still cause a bit of headache, but that's where branches come in. Branches are simply a branch on the timeline of the repository. The timeline itself is just a series of commits. Each branch is just a pointer to the latest commit that was pushed to said branch.
 
+While git is simply a source control service, GitHub extends the functionality with things like issues, pull requests and an intuitive web interface for repositories. Issues are a good way to assign jobs to different group members.
+
 In our case, we started out with a master branch with an example react project, and then started creating branches for each issue. It soon became apparent that making one branch per issue was a bit excessive because our issues were fairly small and could be completed in a couple of commits each. After a while, one of the branches (`feat/ajax` specifically) turned into a de facto development branch rather than being for its speficic issue. To solve this, we merged the branch into master and started a new development branch for further commits, mostly because it is seen as bad practice to push commits straight to master.
 
+## Testing
+
+Using React makes it easier to create webapps that are compatible with more than one browser. React handles things like prefixing CSS rules and handling differences in DOM methods between browsers. Other than that, testing this simple web app is relatively straightforward, and the following steps should be taken:
+
+- Resize the browser (on a desktop) or flip the display orientation (on a phone or tablet) and observe if the layout changes accordingly.
+- Make a selection from the radio buttons and press the generate media button, and observe if any results pop up
+- Click through the tabs to see if different sets of media are displayed
+- Click back to a previous tab to see if the same media will be displayed
+
+We tested this website on a desktop PC, a tablet PC with a high-DPI display, and on a phone. The tested web browsers were Chrome (both desktop and mobile), Firefox and Edge.
 <!-- todo: too much general git stuff? talk more about how we used git specifically -->
