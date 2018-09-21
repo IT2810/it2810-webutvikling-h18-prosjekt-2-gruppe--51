@@ -22,6 +22,8 @@ class App extends Component {
   // after this is done, the active tab should load and save its contents, but the others should wait until they activate
   // make sure to flush the content
   generateMedia(results) {
+    //creates randomized lists that ensure the media displayed in different
+    //tabs are random, but also doesn't show up more or less than once
     let textList = this.randomMediaList();
     let imageList = this.randomMediaList();
     let audioList = this.randomMediaList();
@@ -76,12 +78,14 @@ class App extends Component {
     this.setState({ audio4: audioPanel4 })
   };
 
+// Old function, no longer used anywhere
   randomMedia(type, categories) {
     let i = Math.round(Math.random() * (categories.length - 1))
     let i2 = Math.round(Math.random() * 3 + 1)
     return "assets/" + type["folder"] + "/" + categories[i] + "/" + i2 + type["format"]
   }
 
+  //shuffles a list to randomize the location of content in the tabs
   randomMediaList() {
     let list = [1, 2, 3, 4];
     let temp, randomIndex;
@@ -94,6 +98,7 @@ class App extends Component {
     return list;
   }
 
+  //returns the file location of content based on the index 
   randomMediaToPath(type, categories, index) {
     let i = Math.round(Math.random() * (categories.length - 1))
     //let i2 = Math.round(Math.random() * 3 + 1);

@@ -68,6 +68,21 @@
   grid-area: audio;
 }
 
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-individual {
+  display: inline-block;
+  margin-bottom: -1px;
+  padding: 10px 30px;
+}
+
+.tab-current {
+  
+}
+
 .t1, .t2, .t3, .t4 {
   width: 100px;
   padding: 10px 30px 10px 30px;

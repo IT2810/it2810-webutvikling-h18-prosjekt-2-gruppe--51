@@ -38,6 +38,7 @@ class Tabs extends Component {
               <Tab
                 currentTab={this.state.currentTab}
                 label={label}
+                key={label}
                 onClick={this.onClickTab}
               />
             );
