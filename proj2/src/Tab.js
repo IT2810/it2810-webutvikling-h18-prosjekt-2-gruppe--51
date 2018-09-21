@@ -13,7 +13,7 @@ class Tab extends Component {
 
     return (
       <li className={className}
-      this.onClick={this.onClick} style={{cursor: "pointer"}}>
+      onClick={this.onClick} style={{cursor: "pointer"}}>
         {this.props.label}
       </li>
     )

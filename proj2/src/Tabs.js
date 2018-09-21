@@ -36,7 +36,7 @@ class Tabs extends Component {
             const { label } = child.props;
             return (
               <Tab
-                activeTab={this.state.activeTab}
+                currentTab={this.state.currentTab}
                 label={label}
                 onClick={this.onClickTab}
               />
@@ -45,7 +45,7 @@ class Tabs extends Component {
         </ol>
         <div className="tab-vindow">
           {this.props.children.map((child) => {
-            if (child.props.label !== this.state.activeTab)
+            if (child.props.label !== this.state.currentTab)
               return undefined;
             return child.props.children;
           })}
